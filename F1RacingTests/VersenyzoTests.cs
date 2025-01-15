@@ -8,7 +8,7 @@ public class VersenyzoTests
     public void ProbalElőzni_SikeresElőzés()
     {
         Versenyzo versenyzo = new Versenyzo { Nev = "Charles Leclerc", Kategoria = Kategoria.Agressziv };
-        bool sikeres = versenyzo.ProbalElőzni(2);
+        bool sikeres = versenyzo.ProbalElozni(2);
         Assert.IsTrue(sikeres || !sikeres);
     }
 
@@ -16,7 +16,7 @@ public class VersenyzoTests
     public void SzükségesTankolni_BenzinSzintAlapjanIgaz()
     {
         Versenyzo versenyzo = new Versenyzo { Nev = "Esteban Ocon", Kategoria = Kategoria.Lenduletes, Benzin = 15 };
-        Assert.IsTrue(versenyzo.SzükségesTankolni());
+        Assert.IsTrue(versenyzo.SzuksegesTankolni());
     }
 
     [TestMethod]

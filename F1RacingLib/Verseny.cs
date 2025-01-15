@@ -8,14 +8,13 @@ namespace F1RacingLib
 {
     public class Verseny
     {
-        private List<Versenyzo> versenyzok;  // Aktív versenyzők listája
-        private List<Versenyzo> kiesettVersenyzok = new List<Versenyzo>();  // Kiesett versenyzők
-        private int korokSzama;  // Verseny hossza
-        private static Random ran = new Random();
+        private List<Versenyzo> versenyzok;
+        private List<Versenyzo> kiesettVersenyzok = new List<Versenyzo>();
+        private int korokSzama;
 
         private Dictionary<int, List<string>> korTortenesek = new Dictionary<int, List<string>>();
         private Dictionary<int, List<Versenyzo>> kiesettVersenyzokKoronkent = new Dictionary<int, List<Versenyzo>>();
-        private int seed = 12345;  // Alapértelmezett seed az azonos véletlen számokhoz
+        private int seed = 12345;
 
         public Verseny(int korokSzama, List<Versenyzo> versenyzok)
         {
@@ -23,21 +22,19 @@ namespace F1RacingLib
             this.versenyzok = versenyzok;
         }
 
-        // Verseny szimulációja
         public void Szimulacio()
         {
             int aktualisKor = 0;
-            Random korRng = new Random(seed);  // Véletlenszám-generátor ismételhetőséghez
+            Random korRng = new Random(seed);
             Dictionary<int, List<Versenyzo>> korSorrendek = new Dictionary<int, List<Versenyzo>>();
-            List<Versenyzo> osszesKiesettVersenyzo = new List<Versenyzo>();  // Összes kiesett versenyző listája
+            List<Versenyzo> osszesKiesettVersenyzo = new List<Versenyzo>();
 
             while (aktualisKor < korokSzama)
             {
                 Console.Clear();
-                Console.WriteLine($"--- {aktualisKor + 1}. kör ---\n");
+                Console.WriteLine($"--- {aktualisKor + 1}. kör eredményei ---\n");
 
-                // Kiesett versenyzők kiírása
-                Console.WriteLine("Kiesett versenyzők addig:");
+                Console.WriteLine("Kiesett versenyzők:");
                 if (osszesKiesettVersenyzo.Count > 0)
                 {
                     foreach (var kiesett in osszesKiesettVersenyzo)
@@ -68,7 +65,7 @@ namespace F1RacingLib
                         Versenyzo versenyzo = versenyzok[i];
                         versenyzo.Benzin -= 5;
 
-                        if (versenyzo.SzükségesTankolni())
+                        if (versenyzo.SzuksegesTankolni())
                         {
                             tortenesek.Add($"{versenyzo.Nev} tankol.");
                             versenyzo.Tankol();
@@ -77,9 +74,9 @@ namespace F1RacingLib
                             continue;
                         }
 
-                        if (versenyzo.ProbalElőzni(aktualisKor + 1))
+                        if (versenyzo.ProbalElozni(aktualisKor + 1))
                         {
-                            versenyzo.Benzin -= 4;  // Előzés miatti benzincsökkenés
+                            versenyzo.Benzin -= 4;
                             int celPozicio = versenyzo.Pozicio - 1;
 
                             if (celPozicio >= 0)
@@ -107,10 +104,8 @@ namespace F1RacingLib
                                     {
                                         tortenesek.Add($"{versenyzo.Nev} sikeresen megelőzte {celVersenyzo.Nev}-t!");
 
-                                        // Versenyzők cseréje a listában
                                         (versenyzok[celPozicio], versenyzok[i]) = (versenyzok[i], versenyzok[celPozicio]);
 
-                                        // Pozíciók frissítése
                                         versenyzok[celPozicio].Pozicio = celPozicio;
                                         versenyzok[i].Pozicio = i;
                                     }
@@ -119,7 +114,6 @@ namespace F1RacingLib
                         }
                     }
 
-                    // Sorrend frissítése az adott kör végén
                     versenyzok = versenyzok.OrderBy(v => v.Pozicio).ToList();
                     for (int j = 0; j < versenyzok.Count; j++)
                     {
@@ -141,7 +135,7 @@ namespace F1RacingLib
                     Console.WriteLine($"{poz + 1}. {versenyzok[poz].Nev} | Csapat: {versenyzok[poz].Csapat} | Stílus: {versenyzok[poz].Kategoria} | Benzin: {versenyzok[poz].Benzin}%");
                 }
 
-                Console.WriteLine("\nTovább a következő körhöz: Enter... Vissza az előző körhöz: Backspace...");
+                Console.WriteLine("\nTovább a következő körhöz: Enter... \nVissza az előző körhöz: Backspace...");
                 ConsoleKey key = Console.ReadKey().Key;
 
                 if (key == ConsoleKey.Enter)
@@ -157,16 +151,14 @@ namespace F1RacingLib
             Console.Clear();
             EredmenyKiiras();
         }
-
-        // Verseny végeredményének kiírása
         public void EredmenyKiiras()
         {
             Console.Clear();
             versenyzok = versenyzok.OrderBy(x => x.Pozicio).ToList();
             Console.WriteLine("--- Verseny végeredmény ---");
-            Console.WriteLine($"1. hely: {versenyzok[0].Nev}");
-            Console.WriteLine($"2. hely: {versenyzok[1].Nev}");
-            Console.WriteLine($"3. hely: {versenyzok[2].Nev}");
+            Console.WriteLine($"1. hely: {versenyzok[0].Nev} | Csapat: {versenyzok[0].Csapat} | Stílus: {versenyzok[0].Kategoria} | Benzin: {versenyzok[0].Benzin}%");
+            Console.WriteLine($"2. hely: {versenyzok[1].Nev} | Csapat: {versenyzok[1].Csapat} | Stílus: {versenyzok[1].Kategoria} | Benzin: {versenyzok[1].Benzin}%");
+            Console.WriteLine($"3. hely: {versenyzok[2].Nev} | Csapat: {versenyzok[2].Csapat} | Stílus: {versenyzok[2].Kategoria} | Benzin: {versenyzok[2].Benzin}%");
         }
     }
 }

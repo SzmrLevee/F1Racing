@@ -13,9 +13,8 @@ namespace F1RacingLib
         public int Benzin { get; set; } = 100;
         public int Pozicio { get; set; }
         public bool Kiesett { get; set; } = false;
-        public string Csapat { get; set; }  // Csapat string típusú, így nem kell .Nev
+        public string Csapat { get; set; }
 
-        // Alapértelmezett konstruktor
         public Versenyzo() { }
 
         public Versenyzo(Versenyzo masolat)
@@ -28,18 +27,18 @@ namespace F1RacingLib
             this.Csapat = masolat.Csapat;
         }
 
-        private static Random ran = new Random();
+        private static Random r = new Random();
 
-        public bool ProbalElőzni(int kor)
+        public bool ProbalElozni(int kor)
         {
             switch (Kategoria)
             {
                 case Kategoria.Agressziv:
-                    return kor % 2 == 0 && ran.Next(1, 4) == 1;
+                    return kor % 2 == 0 && r.Next(1, 4) == 1;
                 case Kategoria.Lenduletes:
-                    return kor % 5 == 0 && ran.Next(1, 3) == 1;
+                    return kor % 5 == 0 && r.Next(1, 3) == 1;
                 case Kategoria.Veszelyes:
-                    return kor % 4 == 0 && ran.Next(1, 5) == 1;
+                    return kor % 4 == 0 && r.Next(1, 5) == 1;
                 case Kategoria.Ovatos:
                     return false;
                 default:
@@ -52,7 +51,7 @@ namespace F1RacingLib
             Benzin = 100;
         }
 
-        public bool SzükségesTankolni()
+        public bool SzuksegesTankolni()
         {
             return Kategoria switch
             {

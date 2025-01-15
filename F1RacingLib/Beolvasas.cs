@@ -34,7 +34,6 @@ namespace F1RacingLib
                         Pozicio = i - 1
                     });
                 }
-
                 return (korokSzama, versenyzok);
             }
         }
