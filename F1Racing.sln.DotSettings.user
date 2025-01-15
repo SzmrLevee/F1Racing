@@ -1,0 +1,18 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=08c11470_002Dad9b_002D4aac_002D8a9c_002D800b2e98fe3c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from BeolvasasTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;6E02B6A4-B15B-4AA4-888B-9A2694212657/f:BeolvasasTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;6E02B6A4-B15B-4AA4-888B-9A2694212657/f:VersenyTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;6E02B6A4-B15B-4AA4-888B-9A2694212657/f:VersenyzoTests.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3cef5cda_002Dc6d9_002D4193_002Dbc20_002D1b42b49fe0b0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="VersenyTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::6E02B6A4-B15B-4AA4-888B-9A2694212657::net8.0::F1RacingTests.VersenyTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=65b75c11_002D20b2_002D4b65_002Db0d5_002D1491e6bd920e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BeolvasasTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::6E02B6A4-B15B-4AA4-888B-9A2694212657::net8.0::F1RacingTests.BeolvasasTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
