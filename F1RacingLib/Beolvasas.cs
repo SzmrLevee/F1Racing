@@ -26,13 +26,7 @@ namespace F1RacingLib
                     Kategoria kategoria = (Kategoria)int.Parse(adat[1]);
                     string csapatNev = adat[2];
 
-                    versenyzok.Add(new Versenyzo
-                    {
-                        Nev = nev,
-                        Kategoria = kategoria,
-                        Csapat = csapatNev,
-                        Pozicio = i - 1
-                    });
+                    versenyzok.Add(new Versenyzo(nev, csapatNev, kategoria, i - 1, 100));
                 }
                 return (korokSzama, versenyzok);
             }
